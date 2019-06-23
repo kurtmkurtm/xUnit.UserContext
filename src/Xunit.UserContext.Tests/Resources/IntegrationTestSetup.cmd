@@ -2,7 +2,7 @@
 
 :: Create User Accounts and Set User-Secrets for Intergation Tests
 SET username="TestUsername"
-SET password="TestPassword"
+SET password="ICV$8p0ARL!m"
 SET secrets_id="IntergrationTestID123"
 
 NET USER %username% %password% /ADD

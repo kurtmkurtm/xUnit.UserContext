@@ -11,7 +11,7 @@ namespace Xunit.UserContext.Tests
     /// </summary>
     public class IntegrationTests
     {
-        [UserTheory("TestUsername", "TestPassword")]
+        [UserTheory("TestUsername", "ICV$8p0ARL!m")]
         [InlineData(false)]
         public void UserTheory_WithValidCredentials_RunsUnderContextOfAccount(bool discard)
         {
@@ -23,7 +23,7 @@ namespace Xunit.UserContext.Tests
             Assert.Equal(expectedUser, actualUser);
         }
 
-        [UserFact("TestUsername", "TestPassword")]
+        [UserFact("TestUsername", "ICV$8p0ARL!m")]
         public void UserFact_WithValidCredentials_RunsUnderContextOfAccount()
         {
             var expectedUser = "TestUsername";
