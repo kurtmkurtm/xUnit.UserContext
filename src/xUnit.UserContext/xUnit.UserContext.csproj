@@ -5,7 +5,13 @@
     <Platforms>AnyCPU;x64</Platforms>
     <PackageLicenseUrl>https://github.com/kurtmkurtm/xUnit.UserContext/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/kurtmkurtm/xUnit.UserContext</PackageProjectUrl>
-    <Description>Extension to run tests under the context of a given user through impersonation.</Description>
+    <Description>xUnit.UserContext is an attribute based extension for xUnit that allows tests to run under the context of a given Windows user. Impersonation can be useful for running integration tests that use resources that require windows authentication, such as connecting to a database.</Description>
+    <IsPackable>True</IsPackable>
+    <PackageIconUrl>https://raw.githubusercontent.com/kurtmkurtm/xUnit.UserContext/master/resources/icon.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/kurtmkurtm/xUnit.UserContext</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Copyright>2019</Copyright>
+    <Authors>Kurt Murrell</Authors>
   </PropertyGroup>
 
   <ItemGroup>
