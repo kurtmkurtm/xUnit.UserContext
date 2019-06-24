@@ -24,7 +24,7 @@ using Xunit.UserContext;
 public void TestedMethodName_StateUnderTest_ExpectedBehavior()
 {
     // Test case that uses resource restricted to a windows user
-    // eg. database connection using windows auth
+    // e.g. database connection using windows auth
 }
 ...
 ```
@@ -39,7 +39,7 @@ using Xunit.UserContext;
 public void TestedMethodName_StateUnderTest_ExpectedBehavior(string value)
 {
     // Test case that uses resource restricted to a windows user
-    // eg. database connection using windows auth
+    // e.g. database connection using windows auth
 }
 ...
 ```
@@ -94,7 +94,7 @@ dotnet user-secrets set "Domain" Domain --id TestUserSecretsId
 
 ## Issues & Contributions
 
-If you find a bug or have a feature request, please report them at this repository's issues section. For major changes, please open an issue first to discuss what you would like to change.
+If you find a bug or have a feature request, please report them in this repository's issues section. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
