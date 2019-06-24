@@ -1,4 +1,4 @@
-# xUnit.UserContext
+# xUnit.UserContext <img src="https://raw.githubusercontent.com/kurtmkurtm/xUnit.UserContext/master/resources/icon.svg?raw=true&sanitize=true" width="32"> 
 xUnit.UserContext is an attribute based extension for [xUnit](https://github.com/xunit/xunit) that allows tests to run under the context of a given Windows user. Impersonation can be useful for running integration tests that use resources that require windows authentication, such as connecting to a database.
 
 The aim of this library is to allow easy usage in xUnit tests with minimal code. This library utilises the wrapper library [SimpleImpersonation](https://github.com/mj1856/SimpleImpersonation) to use the Win32 LogonUser API for Impersonation. Additionally, because storing credentials in code is not ideal, this library also supports retrieval of credentials stored using ASP.NET [UserSecrets](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.2&tabs=windows).
