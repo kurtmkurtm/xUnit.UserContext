@@ -2,7 +2,6 @@
 using System.Linq;
 using Xunit.Abstractions;
 using Xunit.Sdk;
-using Xunit.UserContext.Configuration;
 
 namespace Xunit.UserContext.XunitExtensions
 {
@@ -19,14 +18,12 @@ namespace Xunit.UserContext.XunitExtensions
 
         public IEnumerable<IXunitTestCase> Discover(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod, IAttributeInfo factAttribute)
         {
-            var credentials = factAttribute.GetNamedArgument<UserContextSettings>(nameof(UserFactAttribute.UserContext));
-
             var defaultMethodDisplay = discoveryOptions.MethodDisplayOrDefault();
             var defaultMethodDisplayOptions = discoveryOptions.MethodDisplayOptionsOrDefault();
 
             return factDiscoverer.Discover(discoveryOptions, testMethod, factAttribute)
                      .Select(testCase =>
-                     new UserContextTestCase(diagnosticMessageSink, defaultMethodDisplay, defaultMethodDisplayOptions, testMethod, credentials));
+                     new UserContextTestCase(diagnosticMessageSink, defaultMethodDisplay, defaultMethodDisplayOptions, testMethod));
         }
     }
 

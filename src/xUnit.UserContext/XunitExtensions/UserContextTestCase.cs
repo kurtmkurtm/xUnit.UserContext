@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
@@ -9,16 +10,14 @@ namespace Xunit.UserContext.XunitExtensions
 {
     public class UserContextTestCase : XunitTestCase
     {
-        private readonly UserContextSettings _userContext;
+        private UserContextSettings _userContext;
 
         [Obsolete("Called by the de-serializer; should only be called by deriving classes for de-serialization purposes")]
         public UserContextTestCase() : base() { }
 
-        public UserContextTestCase(IMessageSink diagnosticMessageSink, TestMethodDisplay defaultMethodDisplay, TestMethodDisplayOptions defaultMethodDisplayOptions, ITestMethod testMethod, UserContextSettings userContext, object[] testMethodArguments = null)
+        public UserContextTestCase(IMessageSink diagnosticMessageSink, TestMethodDisplay defaultMethodDisplay, TestMethodDisplayOptions defaultMethodDisplayOptions, ITestMethod testMethod, object[] testMethodArguments = null)
             : base(diagnosticMessageSink, defaultMethodDisplay, defaultMethodDisplayOptions, testMethod, testMethodArguments)
-        {
-            _userContext = userContext;
-        }
+        { }
 
         public override Task<RunSummary> RunAsync(IMessageSink diagnosticMessageSink, IMessageBus messageBus, object[] constructorArguments, ExceptionAggregator aggregator, CancellationTokenSource cancellationTokenSource)
         {
@@ -29,8 +28,12 @@ namespace Xunit.UserContext.XunitExtensions
         {
             base.Initialize();
 
-            if (_userContext.DisplayNameOnTest)            
-                DisplayName += $"_(user: {_userContext?.DisplayName})";            
+            var userContextTestAttributes = TestMethod.Method.GetCustomAttributes(typeof(IUserContextTest)).First();
+
+            _userContext = userContextTestAttributes.GetNamedArgument<UserContextSettings>(nameof(UserTheoryAttribute.UserContext));
+
+            if (_userContext.DisplayNameOnTest)
+                DisplayName += $"_(user: {_userContext?.DisplayName})";
         }
     }
 }

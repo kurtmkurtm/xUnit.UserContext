@@ -6,7 +6,7 @@ using Xunit.UserContext.Configuration;
 namespace Xunit.UserContext
 {
     [XunitTestCaseDiscoverer("Xunit.UserContext.XunitExtensions.UserTheoryDiscoverer", "xUnit.UserContext")]
-    public sealed class UserTheoryAttribute : TheoryAttribute
+    public sealed class UserTheoryAttribute : TheoryAttribute, IUserContextTest
     {
         public UserTheoryAttribute(string userSecretsId, LogonType logonType = Default.Logon, bool displayNameOnTest = Default.DisplayName)
             => UserContext = new UserContextSettings(userSecretsId, logonType, displayNameOnTest);
