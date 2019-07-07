@@ -6,7 +6,7 @@ using Xunit.UserContext.Configuration;
 namespace Xunit.UserContext
 {
     [XunitTestCaseDiscoverer("Xunit.UserContext.XunitExtensions.UserFactDiscoverer", "xUnit.UserContext")]
-    public sealed class UserFactAttribute : FactAttribute
+    public sealed class UserFactAttribute : FactAttribute, IUserContextTest
     {
         public UserFactAttribute(string userSecretsId, LogonType logonType = Default.Logon, bool displayNameOnTest = Default.DisplayName)
             => UserContext = new UserContextSettings(userSecretsId, logonType, displayNameOnTest);
