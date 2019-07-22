@@ -1,5 +1,5 @@
 # xUnit.UserContext <img src="https://raw.githubusercontent.com/kurtmkurtm/xUnit.UserContext/master/resources/icon.svg?raw=true&sanitize=true" width="32"> 
-[![Build Status](https://dev.azure.com/kurt0233/xUnit.UserContext/_apis/build/status/xUnit.UserContext-ASP.NET%20Core-CI?branchName=master)](https://dev.azure.com/kurt0233/xUnit.UserContext/_build/latest?definitionId=2&branchName=master)![Nuget](https://img.shields.io/nuget/v/xUnit.UserContext.svg)
+[![Build Status](https://dev.azure.com/kurt0233/xUnit.UserContext/_apis/build/status/xUnit.UserContext-ASP.NET%20Core-CI?branchName=master)](https://dev.azure.com/kurt0233/xUnit.UserContext/_build/latest?definitionId=2&branchName=master) [![Nuget](https://img.shields.io/nuget/v/xUnit.UserContext.svg)](https://www.nuget.org/packages/xUnit.UserContext/)
 
 xUnit.UserContext is an attribute based extension for [xUnit](https://github.com/xunit/xunit) that allows tests to run under the context of a given Windows user. Impersonation can be useful for running integration tests that use resources that require windows authentication, such as connecting to a database.
 
