@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <Platforms>AnyCPU;x64</Platforms>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <PackageLicenseUrl>https://github.com/kurtmkurtm/xUnit.UserContext/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/kurtmkurtm/xUnit.UserContext</PackageProjectUrl>
     <Description>xUnit.UserContext is an attribute based extension for xUnit that allows tests to run under the context of a given Windows user. Impersonation can be useful for running integration tests that use resources that require windows authentication, such as connecting to a database.</Description>
