@@ -1,9 +1,4 @@
-using Microsoft.Extensions.Configuration;
-using SimpleImpersonation;
-using System;
-using System.Collections.Generic;
 using System.Net;
-using xUnit.UserContext.Configuration;
 using Xunit;
 using Xunit.UserContext.Services;
 

@@ -1,13 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
-using SimpleImpersonation;
-using System.Collections.Generic;
 using System.Net;
-using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("xUnit.UserContext.Tests")]
 
 namespace Xunit.UserContext.Services
 {
+    /// <summary>
+    /// Provides access to read user secrets
+    /// </summary>
     internal class UserSecretsProvider
     {
         private readonly string usernameKey = "Username";
@@ -15,6 +13,10 @@ namespace Xunit.UserContext.Services
         private readonly string domainKey = "Domain";
         private readonly IConfiguration _configuration;
 
+        /// <summary>
+        /// Initialises a new instance of the <see cref="UserSecretsProvider"/> class.
+        /// </summary>
+        /// <param name="userSecretsId">Id user secrets were stored with</param>
         public UserSecretsProvider(string userSecretsId)
         {
             _configuration = new ConfigurationBuilder()
@@ -22,6 +24,10 @@ namespace Xunit.UserContext.Services
                 .Build();
         }
 
+        /// <summary>
+        /// Read credentials from user secrets into NetworkCredential
+        /// </summary>
+        /// <returns>Users credentials</returns>
         public NetworkCredential GetCredentials()
         {
             var username = _configuration[usernameKey] ?? string.Empty;
