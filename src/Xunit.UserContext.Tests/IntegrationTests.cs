@@ -1,16 +1,17 @@
 using System;
-using Xunit;
-using Xunit.UserContext;
+using System.Reflection;
 
 namespace Xunit.UserContext.Tests
 {
     /// <summary>
     /// To create accounts for test run IntegrationTestSetup.cmd
     /// To remove tests accounts run IntegrationTestTearDown.cmd 
-    /// Both scrips should be ran in an elevated command prompt
+    /// Both scripts should be ran in an elevated command prompt
     /// </summary>
     public class IntegrationTests
     {
+        public IntegrationTests() => Assembly.Load("xunit.assert");
+
         [UserTheory("TestUsername", "ICV$8p0ARL!m")]
         [InlineData(false)]
         public void UserTheory_WithValidCredentials_RunsUnderContextOfAccount(bool discard)
@@ -54,50 +55,5 @@ namespace Xunit.UserContext.Tests
 
             Assert.Equal(expectedUser, actualUser);
         }
-
-        [UserTheory("FailUsername", "FailPassword", Skip = "Enable to confirm exception thrown during test, not discovery")]
-        [InlineData(false)]
-        public void UserTheory_WithInvalidCredentials_RunsUnderContextOfAccount(bool discard)
-        {
-            _ = discard;
-            var expectedUser = "TestUsername";
-
-            var actualUser = Environment.UserName;
-
-            Assert.Equal(expectedUser, actualUser);
-        }
-
-        [UserFact("FailUsername", "FailPassword", Skip = "Enable to confirm exception thrown during test, not discovery")]
-        public void UserFact_WithInvalidCredentials_RunsUnderContextOfAccount()
-        {
-            var expectedUser = "TestUsername";
-
-            var actualUser = Environment.UserName;
-
-            Assert.Equal(expectedUser, actualUser);
-        }
-
-        [UserFact("FailTestID123", Skip = "Enable to confirm exception thrown during test, not discovery")]
-        public void UserFact_WithInvalidSecretsId_RunsUnderContextOfAccount()
-        {
-            var expectedUser = "TestUsername";
-
-            var actualUser = Environment.UserName;
-
-            Assert.Equal(expectedUser, actualUser);
-        }
-
-        [UserTheory("FailTestID123", Skip = "Enable to confirm exception thrown during test, not discovery")]
-        [InlineData(false)]
-        public void UserTheory_WithInvalidSecretsId_RunsUnderContextOfAccount(bool discard)
-        {
-            _ = discard;
-            var expectedUser = "TestUsername";
-
-            var actualUser = Environment.UserName;
-
-            Assert.Equal(expectedUser, actualUser);
-        }
-
     }
 }
